@@ -42,9 +42,12 @@ const items = [
 export default function PortfolioPage() {
   const ref = useRef()
 
+  const gap = '-' + (100 - (1 / items.length) * 100) + '%'
+
+
   const { scrollYProgress } = useScroll({ target: ref })
 
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'])
+  const x = useTransform(scrollYProgress, [0.2, 1], ['0%', `${gap}`])
   return (
     <motion.div
       className='h-full'
@@ -52,17 +55,17 @@ export default function PortfolioPage() {
       animate={{ y: '0', visibility: 'visible' }}
       transition={{ delay: 0.5, duration: 2 }}
     >
-      <div className='h-[500vh]'>
-        <div className='w-screen relative h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center'>
+      <div className='h-[600vh] relative' ref={ref}>
+        <div className='w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center'>
           My Works
         </div>
+
         <div className='overflow-hidden sticky top-0 flex h-screen gap-4 items-center'
           style={{ scrollbarWidth: 'none' }}
         >
           <motion.div className='flex'
             style={{ x }}
           >
-            <div className='h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300' />
             {items.map(item => (
               <div key={item.id} className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}>
                 <div className='flex flex-col gap-8 text-white justify-center items-center'>
@@ -81,6 +84,8 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
         </div>
+
+
       </div>
       <div className=' w-screen h-screen flex flex-col gap-16 items-center justify-center text-center'>
         <h1 className='text-8xl'>Do you have a project?</h1>
