@@ -3,6 +3,12 @@ import Brain from '@/components/brain'
 import { motion, useInView, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 
+const skills = [
+  'Javascript', 'Typescript', 'CSS', 'Tailwind', 
+  'Framer-motion', 'MongoDB', 'OAuth', 'Next.js', 
+  'Node.js', 'React.js', 'Emailjs'
+]
+
 
 export default function AboutPage() {
 
@@ -101,16 +107,9 @@ export default function AboutPage() {
               animate={isSkillRefInView ? { x: 0 } : { x: '-100vw' }}
               transition={{ duration: 0.5 }}
             >
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>Javascript</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>Typescript</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>CSS</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>Tailwind</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>Framer-motion</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>MongoDB</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>OAuth</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>Next.js</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>Node.js</div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black'>React.js</div>
+              {skills.map((skill, index)=>(
+              <div key={index} className='rounded p-2 text-sm cursor-pointer bg-black ring-black ring-1 text-white hover:bg-white hover:text-black'>{skill}</div>
+              ))}
             </motion.div>
             <motion.svg
               initial={{ opacity: 0.2, y: 0 }}

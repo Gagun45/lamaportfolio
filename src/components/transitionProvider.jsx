@@ -18,9 +18,9 @@ export default function TransitionProvider({ children }) {
     return (
         <AnimatePresence mode='wait' initial={false}>
             <div key={pathname} className='w-screen h-screen bg-gradient-to-b from-blue-100 to-red-100 relative' >
-                <motion.div className="hidden md:flex w-screen bg-black fixed justify-center rounded-b-[200px] top-0 items-center z-40 text-white"
+                <motion.div className="hidden md:flex w-screen bg-black fixed justify-center top-0 items-center z-40 text-white"
                     animate={{ height: '0vh' }}
-                    exit={{ height: '120vh' }}
+                    exit={{ height: '100vh' }}
                     transition={{ duration: 0.5 }}
                 />
                 <motion.div className='hidden md:flex text-white w-fit h-fit z-50 cursor-default fixed bottom-0 right-0 left-0 top-0 text-8xl m-auto'
@@ -29,8 +29,8 @@ export default function TransitionProvider({ children }) {
                     transition={{ duration: 1, ease: 'easeInOut' }}>
                     {links.find(link => link.url == pathname)?.title || ''}
                 </motion.div>
-                <motion.div className="hidden md:flex w-screen bg-black fixed bottom-0 rounded-t-[200px] justify-center items-center z-30 text-white"
-                    initial={{ height: '120vh' }}
+                <motion.div className="hidden md:flex w-screen bg-black fixed bottom-0 justify-center items-center z-30 text-white"
+                    initial={{ height: '100vh' }}
                     animate={{ height: '0vh' }}
                     transition={{ duration: 0.5, delay: 1 }}
                 />
