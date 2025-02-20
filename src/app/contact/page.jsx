@@ -5,10 +5,6 @@ import emailjs from '@emailjs/browser'
 
 const text = 'Say Hello'
 
-export const metadata = {
-  title: "Contact",
-  description: "Contact desc",
-};
 
 export default function ContactPage() {
   const ref = useRef()

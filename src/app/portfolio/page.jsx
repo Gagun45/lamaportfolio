@@ -39,10 +39,6 @@ const items = [
   },
 ];
 
-export const metadata = {
-  title: "Portfolio",
-  description: "Portoflio desc",
-};
 
 export default function PortfolioPage() {
   const ref = useRef()

@@ -3,10 +3,6 @@ import Brain from '@/components/brain'
 import { motion, useInView, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 
-export const metadata = {
-  title: "About",
-  description: "About desc",
-};
 
 export default function AboutPage() {
 
